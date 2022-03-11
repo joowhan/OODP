@@ -25,7 +25,7 @@ public abstract class Support {
     }
     protected abstract boolean resolve(Trouble trouble);
     protected void done(Trouble trouble) {
-        System.out.println(trouble + " is resolved by " + this + ".");
+        System.out.println("Terrain Sensor : " + this + "\n" + trouble);
     }
     protected void fail(Trouble trouble) {
         System.out.println(trouble + " cannot be resolved.");
