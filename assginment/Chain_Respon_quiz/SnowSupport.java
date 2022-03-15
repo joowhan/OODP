@@ -11,4 +11,7 @@ public class SnowSupport extends Support {
             return false;
         }
     }
+    protected int getNumber() {
+        return number;
+    }
 }

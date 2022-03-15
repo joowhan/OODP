@@ -14,7 +14,8 @@ public abstract class Support {
     public final void support(Trouble trouble) {
         if (resolve(trouble)) {
             done(trouble);
-        } else if (next != null) {
+        } else if (next != null) { //driving mode changed
+            //System.out.println(".....Driving Mode changed to "+ this.next);
             next.support(trouble);
         } else {
             fail(trouble);
@@ -25,7 +26,11 @@ public abstract class Support {
     }
     protected abstract boolean resolve(Trouble trouble);
     protected void done(Trouble trouble) {
-        System.out.println("Terrain Sensor : " + this + "\n" + trouble);
+        System.out.println("Terrain Sensor : " + this.name + " Road.");
+        // if(getNumber() == trouble.getPrevNumber()){
+        //     System.out.println("No Mode Change ---");
+        // }
+        
     }
     protected void fail(Trouble trouble) {
         System.out.println(trouble + " cannot be resolved.");

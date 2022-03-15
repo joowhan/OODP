@@ -1,17 +1,26 @@
 import java.util.Random;
 public class Main {
     public static void main(String[] args) {
-        Support slipperyTer     = new SnowSupport("slippery Road", 1);
-        Support sandTer     = new SandSupport("sand and Soft Road", 2);
-        Support pebbleTer   = new PebbleSupport("Pebble or Uneven Road", 3);
+        Support defaultMode = new NoSupport("turn on the mode",0);
+        Support slipperyTer = new SnowSupport("Slippery", 1);
+        Support sandTer     = new SandSupport("Sand and Soft", 2);
+        Support pebbleTer   = new PebbleSupport("Pebble or Uneven", 3);
 
-        slipperyTer.setNext(sandTer).setNext(pebbleTer);
+        defaultMode.setNext(slipperyTer).setNext(sandTer).setNext(pebbleTer);
         Random rand = new Random();
         int caseNum = 3;
+        int ran  = 0;
+        int prev = 0;
         for (int i = 0; i < 10; i += 1) {
             //generate random number
-            slipperyTer.support(new Trouble(rand.nextInt(caseNum)+1));
-            System.out.println("=======\n");
+            ran = rand.nextInt(caseNum)+1;
+            //trouble, 2 parameter
+            defaultMode.support(new Trouble(ran));
+            
+            ModeTracking modeTracking = new ModeTracking(ran, prev);
+            modeTracking.modeTracking();
+            prev = ran;
+            System.out.println("=======");
         }
     }
 }

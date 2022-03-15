@@ -6,6 +6,9 @@ public class Trouble {
     public int getNumber() {
         return number;
     }
+    // public int getPrevNumber() {
+    //     return prev;
+    // }
     public String toString() {
         if(number ==1){
             return "Snow or Icy Terrain : Friction Mode Driving";
@@ -18,9 +21,4 @@ public class Trouble {
         }
         
     }
-    /*
-    public String toString() {
-        return "[Trouble " + number + "]";
-    }
-     */
 }
