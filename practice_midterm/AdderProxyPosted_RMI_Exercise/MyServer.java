@@ -1,12 +1,13 @@
 import java.rmi.*;
+import java.rmi.registry.*;
 
-public class MyClient {
+public class MyServer {
 
     public static void main(String args[]) {
         try {
 
-            Adder stub = (Adder) Naming.lookup("rmi://localhost:5000/sonoo");
-            System.out.println(stub.add(34, 4));
+            Adder stub = new AdderRemote();
+            Naming.rebind("rmi://localhost:5000/sonoo", stub);
 
         } catch (Exception e) {
             System.out.println(e);
