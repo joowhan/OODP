@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Iterator;
+import framework.*;
 
 public abstract class NumberGenerator {
     private ArrayList observers = new ArrayList();
@@ -18,6 +19,7 @@ public abstract class NumberGenerator {
     }
     public abstract int getNumber();
     public abstract String getMode();
+    public abstract Manager getManager();
     public abstract void execute();
 }
 

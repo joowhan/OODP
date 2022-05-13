@@ -7,12 +7,9 @@ public class SunnyObserver implements Observer {
         System.out.println("Sunny Observer received new state:" + passedMode);
         if(mode.equals(passedMode)){
             System.out.println(">> "+ mode + " Mode Starts...");
-            System.out.println("Adjust solar panels for maximum battery charging");
             Manager manager = generator.getManager();
             Battery bat = manager.create("sunny");
             bat.use();
-            //System.out.println("Start Cooling System");
-            generator.turnonCooling();
 
         }
         else{
@@ -20,7 +17,7 @@ public class SunnyObserver implements Observer {
         }
 
         try {
-            //Thread.sleep(100);
+            Thread.sleep(100);
         } catch (InterruptedException e) {
         }
     }
